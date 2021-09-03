@@ -35,25 +35,42 @@ alert("I numeri vincenti che devi ricordare sono:  " + numeriVincenti);
 setTimeout(function(){
     for (j = 0; j < 5; j++){
         let numeroTemporaneo = parseInt(prompt("Inserisci un numero: "));
-        while (isNaN(numeroTemporaneo)){
+        while (isNaN(numeroTemporaneo) || numeroTemporaneo.length == 0 ){
             numeroTemporaneo = parseInt(prompt("Numero non valido, inseriscine un altro: "));
-        }numeriScelti.push(numeroTemporaneo);
+        }while (numeriScelti.includes(numeroTemporaneo)){
+            numeroTemporaneo = parseInt(prompt("Numero già inserito, inseriscine un altro: "));
+        }
+        numeriScelti.push(numeroTemporaneo);
     }
-} , 300)
+    if (numeriScelti.length == 5){
+        for (k = 0; k < numeriScelti.length ; k++){
+            let numeroDiAdesso = numeriScelti[k];
+                if (numeriVincenti.includes(numeroDiAdesso)){
+                    numeriAzzeccati.push(numeroDiAdesso);
+                }else{
+                    numeriSbagliati.push(numeroDiAdesso);
+                }
+            }
+        }
+        console.log( "I numeri scelti dall'utente sono: " + numeriScelti);
+        console.log("I numeri che l'utente ha inserito ma che non sono nella lista dei numeri giusti sono: " + numeriSbagliati);
+        console.log("I numeri che l'utente ha indovinato sono: "  + numeriAzzeccati);
 
-for (k = 0; k < numeriScelti.length ; k++){
-    if (numeriVincenti.includes(numeriScelti[k])){
-        numeriAzzeccati.push(numeriScelti[k]);
-    }else{
-        numeriSbagliati.push(numeriScelti[k]);
-    }
-}
+        document.getElementById("corretti").innerHTML += numeriAzzeccati;
+        document.getElementById("sbagliati").innerHTML += numeriSbagliati;
 
-console.log(numeriVincenti);
-console.log(numeriScelti[3]); // Non capisco perché mi dà undefinedù
-console.log(numeriScelti);    // MA questo lo stampa
+
+    
+} , 3000)
+
+
+
+console.log( "I numeri vincenti sono: " + numeriVincenti);
+
+/*
 console.log(numeriAzzeccati);
 console.log(numeriSbagliati);
+*/
 
 
 
