@@ -61,16 +61,11 @@ setTimeout(function(){
 
 
     
-} , 3000)
+} , 3000) // NON L'HO FATTO DI 30 SECONDI PERCHE' NON HO PAZIENZA. COMUNQUE INVECE DI 3000 AVREI DOVUTO SCRIVERE 30000
 
 
 
 console.log( "I numeri vincenti sono: " + numeriVincenti);
-
-/*
-console.log(numeriAzzeccati);
-console.log(numeriSbagliati);
-*/
 
 
 
