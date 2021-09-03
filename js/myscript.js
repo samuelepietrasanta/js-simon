@@ -14,6 +14,52 @@ DESCRIZIONE:
 */
 
 
+let numeriVincenti = [];
+let numeriScelti = [];
+let numeriAzzeccati = [];
+let numeriSbagliati = [];
+
+
+
+for (i = 0 ; i < 5 ; i++){
+    let numeroAttuale = getRandomInt(1 , 100);
+    numeriVincenti.push(numeroAttuale);
+}
+
+
+
+
+alert("I numeri vincenti che devi ricordare sono:  " + numeriVincenti);
+
+
+setTimeout(function(){
+    for (j = 0; j < 5; j++){
+        let numeroTemporaneo = parseInt(prompt("Inserisci un numero: "));
+        while (isNaN(numeroTemporaneo)){
+            numeroTemporaneo = parseInt(prompt("Numero non valido, inseriscine un altro: "));
+        }numeriScelti.push(numeroTemporaneo);
+    }
+} , 300)
+
+for (k = 0; k < numeriScelti.length ; k++){
+    if (numeriVincenti.includes(numeriScelti[k])){
+        numeriAzzeccati.push(numeriScelti[k]);
+    }else{
+        numeriSbagliati.push(numeriScelti[k]);
+    }
+}
+
+console.log(numeriVincenti);
+console.log(numeriScelti[3]); // Non capisco perché mi dà undefinedù
+console.log(numeriScelti);    // MA questo lo stampa
+console.log(numeriAzzeccati);
+console.log(numeriSbagliati);
+
+
+
+
+
+
 
 
 
